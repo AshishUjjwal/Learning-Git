@@ -15,12 +15,11 @@ void solve(){
         if(i+3<=n){
             if((v[i] + v[i+1] + v[i+2]) %3 == 0 )continue;
             else{
-                // cout<<"i =="<<i<<endl;
                 ll x = v[i] + v[i+1] + v[i+2];
-                ll y = x/3; /*cout<<"y =="<<y<<endl;*/
+                ll y = x/3; 
                 sum += 3*(y+1) - x;
                 ll cnt = 3*(y+1) - x;
-                v[i+2] += cnt; /*cout<<v[i+2]<<endl;*/
+                v[i+2] += cnt; 
             }
         }
     }
