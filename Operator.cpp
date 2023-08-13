@@ -1,23 +1,34 @@
-// This Program is done by Ashish Ujjwal
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-
 #define ll long long int
-#define yes cout << "YES" << endl
-#define no cout << "NO" << endl
-#define pb push_back
-#define all(X) (X).begin(), (X).end()
-#define np cout << -1 << endl
-#define rn return
 
-int main(){
-
-    int n;cin>>n;
-    while(n--){
-        int x,y;
-        cin>>x>>y;
-        int add = x+y;
-        int sub = abs(x-y);
+void solve(){
+    ll n; cin>>n;
+    vector<ll>v;
+    for(ll i=0; i<n; i++){
+        ll x; cin>>x;
+        v.push_back(x);
     }
-    return 0;
+    
+    ll sum = 0;
+    for(ll i=0; i<n; i++){
+        if(i+3<=n){
+            if((v[i] + v[i+1] + v[i+2]) %3 == 0 )continue;
+            else{
+                // cout<<"i =="<<i<<endl;
+                ll x = v[i] + v[i+1] + v[i+2];
+                ll y = x/3; /*cout<<"y =="<<y<<endl;*/
+                sum += 3*(y+1) - x;
+                ll cnt = 3*(y+1) - x;
+                v[i+2] += cnt; /*cout<<v[i+2]<<endl;*/
+            }
+        }
+    }
+    cout<< sum<<endl;
+}
+
+int main() {
+	ll t;cin>>t;
+	while(t--) solve();
+	return 0;
 }
